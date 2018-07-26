@@ -429,12 +429,12 @@ new webpack.optimize.SplitChunksPlugin({
 
 ###  Demo12：html-loader （实现资源复用）
 解决jquery的引用，每次都要在页面上输入一遍，可以把它提取出来作为一个公共的部分（头部和尾部），用ejs需要html-loader作为中介
-view
-├── layout
-│   ├── header.html
-│   └── footer.html
-├── index.html
-└── login.html
+view <br />
+├── layout <br />
+│   ├── header.html <br />
+│   └── footer.html <br />
+├── index.html <br />
+└── login.html <br />
 ```markdown
 //安装
 npm i html-loader --save-dev
