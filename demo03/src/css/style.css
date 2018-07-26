@@ -1,0 +1,9 @@
+div {
+  width: 100px;
+  height: 100px;
+  background: pink;
+  transition: width 2s;
+}
+div:hover {
+  width: 600px;
+}

@@ -1,0 +1,7 @@
+body{
+	background: url('../img/01.jpg') no-repeat;
+}
+.icon-legal,.icon-lock{
+    font-size: 120px;
+    color:blueviolet;
+}
