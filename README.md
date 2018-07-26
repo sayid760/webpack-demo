@@ -56,18 +56,18 @@ webpack --config webpack.conf.js  //这种是有webpack.config.js文件的情�
 
 
 ## 演示
-1. [webpack-dev-server（本地服务）](#demo01)
-2. [css-loader 、less-loader](#demo02)
-3. [postcss-loader、autoprefixer（自动补充css前缀）](#demo03)
-4. [file-loader （打包html 、字体图标）](#demo04)
-5. [ html-webpack-plugin  （js自行插入到html中）](#demo05)
-6. [html-withimg-loader （解决html里的img路径不对）](#demo06)
-7. [ extract-text-webpack-plugin  （将 CSS 提取到一个文件中）](#demo07)
-8. [mini-css-extract-plugin  （将 CSS 提取到一个文件中）](#demo08)
-9. [引入第三方文件（jquery,boostrap）](#demo09)
-10. [babel](#demo10)
-11. [splitChunksPlugin（提交公共js）](#demo11)
-12. [html-loader （实现资源复用）](#demo12)
+1. [webpack-dev-server（本地服务）](demo01)
+2. [css-loader 、less-loader](demo02)
+3. [postcss-loader、autoprefixer（自动补充css前缀）](demo03)
+4. [file-loader （打包html 、字体图标）](demo04)
+5. [ html-webpack-plugin  （js自行插入到html中）](demo05)
+6. [html-withimg-loader （解决html里的img路径不对）](demo06)
+7. [ extract-text-webpack-plugin  （将 CSS 提取到一个文件中）](demo07)
+8. [mini-css-extract-plugin  （将 CSS 提取到一个文件中）](demo08)
+9. [引入第三方文件（jquery,boostrap）](demo09)
+10. [babel](demo10)
+11. [splitChunksPlugin（提交公共js）](demo11)
+12. [html-loader （实现资源复用）](demo12)
 
 ###  Demo1：webpack-dev-server（本地服务）
 ```markdown
