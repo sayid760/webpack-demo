@@ -64,7 +64,7 @@ webpack --config webpack.conf.js  //这种是有webpack.config.js文件的情�
 8. [mini-css-extract-plugin  （将 CSS 提取到一个文件中）](demo08)
 9. [引入第三方文件（jquery,boostrap）](demo09)
 10. [babel](demo10)
-11. [splitChunksPlugin（提交公共js）](demo11)
+11. [splitChunksPlugin（提取公共js）](demo11)
 12. [html-loader （实现资源复用）](demo12)
 
 ###  Demo1：webpack-dev-server（本地服务）
@@ -325,9 +325,9 @@ $('body').css('background','red');
 
 
 ###  Demo10： babel   
-核心：babel-core
-功能：babel-loader   babel-preset-env   babel-preset-react （使用babel编译react）
-第一种方法：
+核心：babel-core <br>
+功能：babel-loader   babel-preset-env   babel-preset-react （使用babel编译react <br>
+第一种方法：<br>
 ```markdown
 //安装
 npm i babel-core babel-loader   babel-preset-env   babel-preset-react --save-dev
@@ -366,7 +366,7 @@ npm i babel-core babel-loader   babel-preset-env   babel-preset-react --save-dev
 ```
 文档：https://babeljs.io/docs/en/plugins#pluginpresets-options.
 
-###  Demo11： splitChunksPlugin（提交公共js）  
+###  Demo11： splitChunksPlugin（提取公共js）  
 ```markdown
 splitChunksPlugin 默认配置项 :
 {
