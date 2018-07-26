@@ -1,8 +1,19 @@
-下载安装
+### 使用
+```markdown
+//安装包
+npm install
+
+//打包
+npm run build
+
+//启动服务器
+npm run dev
+```
+具体查看package.json使用
 
 ----------------------------------------------------------------------------------
-[TOC]
-# webpack.config配置
+
+## webpack.config配置
 webpack本身是打包js的（不支持css,html,图片），但是如有打包css、html、图片...怎么办？必须要进行相关配置，也是基础CommonJs的规范
 ## 安装
 ```markdown
@@ -16,7 +27,7 @@ npm init
 //局部安装
 npm install webpack  webpack-cli -S
 ```
-## wenpack四个核心概念
+### wenpack四个核心概念
 - 入口（entry）
 - 输出（output）
 - loader---------->可以将所有类型转换成webpack能打包的东西（webpack本事只打包js）
@@ -34,7 +45,7 @@ module.exports = {
     }
 }
 ```
-## 打包
+### 打包
 webpack app.js --output bundle.js  //如果没有config webpack.config.js文件的打包方式
 webpack --config webpack.conf.js  //这种是有webpack.config.js文件的情况下，而且要指定文件的情况下，没指定就查找默认的文件
 
@@ -44,8 +55,21 @@ webpack --config webpack.conf.js  //这种是有webpack.config.js文件的情�
 
 
 
-# 演示
-## Demo1：本地服务 （webpack-dev-server）
+## 演示
+1. [webpack-dev-server（本地服务）](#demo01)
+2. [css-loader 、less-loader](#demo02)
+3. [postcss-loader、autoprefixer（自动补充css前缀）](#demo03)
+4. [file-loader （打包html 、字体图标）](#demo04)
+5. [ html-webpack-plugin  （js自行插入到html中）](#demo05)
+6. [html-withimg-loader （解决html里的img路径不对）](#demo06)
+7. [ extract-text-webpack-plugin  （将 CSS 提取到一个文件中）](#demo07)
+8. [mini-css-extract-plugin  （将 CSS 提取到一个文件中）](#demo08)
+9. [引入第三方文件（jquery,boostrap）](#demo09)
+10. [babel](#demo10)
+11. [splitChunksPlugin（提交公共js）](#demo11)
+12. [html-loader （实现资源复用）](#demo12)
+
+###  Demo1：webpack-dev-server（本地服务）
 ```markdown
 //安装
 npm i webpack-dev-server --save-dev
@@ -69,7 +93,7 @@ npm i webpack-dev-server --save-dev
 
 --open 自动打开 --inline 实时刷新
 
-## Demo2： css-loader 、less-loader
+###  Demo2： css-loader 、less-loader
 ```markdown
 npm i  style-loader  css-loader --save-dev
 module: {
@@ -129,7 +153,7 @@ plugins:[
 	new ExtractTextPlugin('./css/[name].css')
 ]
 ```
-## Demo3：postcss-loader、autoprefixer（自动补充css前缀）
+###  Demo3：postcss-loader、autoprefixer（自动补充css前缀）
 ```markdown
 //安装
 npm i postcss-loader autoprefixer --save-dev
@@ -161,7 +185,7 @@ module.exports = {
 ```
 
 
-## Demo4： file-loader （打包html 、字体图标）  
+###  Demo4： file-loader （打包html 、字体图标）  
 ```markdown
 npm i  file-loader --save-dev
 module: {
@@ -179,7 +203,7 @@ module: {
   }
 ```
 
-## Demo5： html-webpack-plugin  （js自行插入到html中）
+###  Demo5： html-webpack-plugin  （js自行插入到html中）
 ```markdown
 //安装
 npm i html-webpack-plugin --save-dev
@@ -204,7 +228,7 @@ plugins:[
 ```
 参考https://segmentfault.com/a/1190000008590102
 
-## Demo6： html-withimg-loader （解决html里的img路径不对） 
+###  Demo6： html-withimg-loader （解决html里的img路径不对） 
 如果入口文件index.js中没有引入css（css中有img），就不会自动打包生成img，于是就获取不到img图片，那么html-withimg-loader就可以打包一份图片路径
 ```markdown
 //安装
@@ -221,7 +245,7 @@ module: {
   }
 ```
 
-## Demo7： extract-text-webpack-plugin  （将 CSS 提取到一个文件中）  
+###  Demo7： extract-text-webpack-plugin  （将 CSS 提取到一个文件中）  
 把css单独打包到文件里
 ```markdown
 //安装
@@ -253,7 +277,7 @@ module: {
     new ExtractTextPlugin('./css/[name].css')
   ]
 ```
-## Demo8： mini-css-extract-plugin  （将 CSS 提取到一个文件中）  
+###  Demo8： mini-css-extract-plugin  （将 CSS 提取到一个文件中）  
 ```markdown
 //安装
 npm i mini-css-extract-plugin css-loader --save-dev
@@ -278,7 +302,7 @@ module: {
   ]
 ```
 
-## Demo9：引入第三方文件（jquery,boostrap）
+###  Demo9：引入第三方文件（jquery,boostrap）
 方法一：  
 ```markdown
 //安装
@@ -302,7 +326,7 @@ $('body').css('background','red');
 ```
 
 
-## Demo10： babel   
+###  Demo10： babel   
 核心：babel-core
 功能：babel-loader   babel-preset-env   babel-preset-react （使用babel编译react）
 第一种方法：
@@ -344,7 +368,7 @@ npm i babel-core babel-loader   babel-preset-env   babel-preset-react --save-dev
 ```
 文档：https://babeljs.io/docs/en/plugins#pluginpresets-options.
 
-## Demo11： 提交公共js  
+###  Demo11： splitChunksPlugin（提交公共js）  
 ```markdown
 splitChunksPlugin 默认配置项 :
 {
@@ -403,7 +427,7 @@ new webpack.optimize.SplitChunksPlugin({
 ```
 
 
-## Demo12：html-loader （实现资源复用）
+###  Demo12：html-loader （实现资源复用）
 解决jquery的引用，每次都要在页面上输入一遍，可以把它提取出来作为一个公共的部分（头部和尾部），用ejs需要html-loader作为中介
 view
 ├── layout
@@ -439,16 +463,8 @@ plugins: [
     new HtmlWebpackPlugin(getHtmlConfig('login', '商品列表'))
 ],
 ```
-参考demo12
 
-## Demo13：imagemin-webpack-plugin
+持续更新...
 
 
-官方文档：http://webpack.css88.com/
-
-参考：http://www.css88.com/archives/9436
-参考：
-webpack4入门5——插件 https://www.jianshu.com/p/3066d96aec8b
-webpack4：连奏中的进化  https://www.cnblogs.com/wmhuang/p/8967639.html
-Webpack4+ 多入口程序构建 https://juejin.im/post/5af3a6cbf265da0ba266ff25
 
