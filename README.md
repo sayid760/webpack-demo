@@ -11,11 +11,9 @@ npm run dev
 ```
 具体查看package.json使用
 
-----------------------------------------------------------------------------------
-
 ## webpack.config配置
 webpack本身是打包js的（不支持css,html,图片），但是如有打包css、html、图片...怎么办？必须要进行相关配置，也是基础CommonJs的规范
-## 安装
+### 安装
 ```markdown
 //全局安装
 npm install webpack -g
