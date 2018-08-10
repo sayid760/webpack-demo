@@ -396,32 +396,28 @@ cacheGroups配置项:
 }
 ```
 ```markdown
-new webpack.optimize.SplitChunksPlugin({
-      cacheGroups: {
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
+optimization: {
+        splitChunks: {
+            chunks: 'initial', // 只对入口文件处理
+            cacheGroups: {
+                vendor: { // `node_modules`目录下被打包的代码到 `page/vendor.js && .css` 没找到可打包文件的话，则没有。css需要依赖 `ExtractTextPlugin`
+                    test: /node_modules\//,
+                    name: 'page/vendor',
+                    priority: 10,
+                    enforce: true
+                },
+                commons: { // `common`和`components`目录下被打包的代码到`page/commons.js && .css`
+                    test: /common\/|components\//,
+                    name: 'page/commons',
+                    priority: 10,
+                    enforce: true
+                }
+            }
         },
-        //打包重复出现的代码
-        vendor: {
-          chunks: 'initial',
-          minChunks: 2,
-          maxInitialRequests: 5,
-          minSize: 0, 
-          name: 'vendor'
-        },
-        //打包第三方类库
-        commons: {
-          name: "commons",
-          chunks: "initial",
-          minChunks: Infinity
+        runtimeChunk: {
+            name: 'manifest'
         }
-      }
-    }),
-    new webpack.optimize.RuntimeChunkPlugin({
-      name: "manifest"
-    }),
+    }
 ```
 
 
