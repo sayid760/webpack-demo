@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%= require('html-loader!./layout/header.html')  %>
+<head>
+    <title><%= htmlWebpackPlugin.options.title%></title>
+    <%= require('html-loader!./layout/header.html')%>
+</head>
 <body>
     <h1>index</h1>
     <%= require('html-loader!./layout/footer.html')  %>
